@@ -2,20 +2,33 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>StudyPlanner</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 <body>
     <div class="background"></div>
     <div class="background-overlay"></div>
     <nav class="navbar">
         <div class="logo">
-            <div class="logo-icon">✦</div>
-            <span>StudyPlanner</span>
+            <div class="logo-icon">
+                ✦
+            </div>
+            <span>
+                StudyPlanner
+            </span>
         </div>
         <div class="nav-links">
-            <a href="#home" class="active">
+            <a
+                href="#home"
+                class="active"
+            >
                 <span>⌂</span>
                 Головна
             </a>
@@ -37,7 +50,10 @@
             Online
         </div>
     </nav>
-    <main class="container" id="home">
+    <main
+        class="container"
+        id="home"
+    >
         <section class="hero">
             <div>
                 <div class="hero-label">
@@ -53,9 +69,11 @@
                 </p>
             </div>
             <div class="date-box">
-                <span>Сьогодні</span>
+                <span>
+                    Сьогодні
+                </span>
                 <strong id="todayDate">
-                    15.09.2026
+                    00.00.0000
                 </strong>
             </div>
         </section>
@@ -79,6 +97,7 @@
                         type="text"
                         id="taskInput"
                         placeholder="Назва завдання..."
+                        autocomplete="off"
                     >
                     <select id="subjectInput">
                         <option value="Веброзробка">
@@ -93,6 +112,12 @@
                         <option value="Математика">
                             📐 Математика
                         </option>
+                        <option value="Англійська">
+                            🇬🇧 Англійська
+                        </option>
+                        <option value="Українська">
+                            🇺🇦 Українська
+                        </option>
                         <option value="Інше">
                             📚 Інше
                         </option>
@@ -106,19 +131,68 @@
                             🟢 Низький
                         </option>
                         <option value="Середній">
-                             🟠Середній
+                            🟠 Середній
                         </option>
                         <option value="Високий">
-                             🔴Високий
+                            🔴 Високий
                         </option>
                     </select>
                     <button
                         class="add-button"
+                        type="button"
                         onclick="addTask()"
                     >
-                         Додати завдання
-
+                        ＋ Додати завдання
                     </button>
+
+                </div>
+            </section>
+            <section class="card voice-card">
+                <div class="card-header">
+                    <div class="card-icon blue">
+                        🎤
+                    </div>
+                    <div>
+                        <small>
+                            ГОЛОСОВЕ КЕРУВАННЯ
+                        </small>
+                        <h2>
+                            Керування голосом
+                        </h2>
+                    </div>
+                </div>
+                <div class="voice-controls">
+                    <select id="languageSelect">
+                        <option value="uk-UA">
+                            🇺🇦 Українська
+                        </option>
+                        <option value="en-US">
+                            🇬🇧 English
+                        </option>
+                        <option value="pl-PL">
+                            🇵🇱 Polski
+                        </option>
+                    </select>
+                    <button
+                        id="voiceButton"
+                        class="voice-button"
+                        type="button"
+                        onclick="startVoiceRecognition()"
+                    >
+                        🎤 Почати слухати
+                    </button>
+                    <div
+                        id="voiceStatus"
+                        class="voice-status"
+                    >
+                        👂 Натисніть кнопку та скажіть команду.
+                    </div>
+                    <div
+                        id="aiAnswer"
+                        class="voice-status"
+                    >
+                        💡 Приклади: «додай завдання математика»
+                    </div>
                 </div>
             </section>
             <section
@@ -141,18 +215,21 @@
                 <div class="filters">
                     <button
                         class="filter-btn active"
+                        type="button"
                         onclick="filterTasks('all', this)"
                     >
                         Усі
                     </button>
                     <button
                         class="filter-btn"
+                        type="button"
                         onclick="filterTasks('active', this)"
                     >
                         Активні
                     </button>
                     <button
                         class="filter-btn"
+                        type="button"
                         onclick="filterTasks('completed', this)"
                     >
                         Виконані
@@ -262,9 +339,15 @@
                 контролю та організації навчальних завдань.
             </p>
             <div class="technologies">
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
+                <span>
+                    HTML5
+                </span>
+                <span>
+                    CSS3
+                </span>
+                <span>
+                    JavaScript
+                </span>
             </div>
         </section>
     </main>
@@ -280,5 +363,6 @@
         </span>
     </footer>
     <script src="script.js"></script>
+    <script src="voice.js"></script>
 </body>
 </html>
